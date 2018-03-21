@@ -1,0 +1,16 @@
+[Unit]
+Description=Mirakurun 
+After=docker.service
+
+[Service]
+Type=simple
+RemainAfterExit=yes
+Restart=on-failure
+WorkingDirectory=/usr/local/project/tvs
+ExecStart=/usr/bin/docker-compose up -d mirakurun
+ExecStop=/usr/bin/docker-compose stop mirakurun
+User=chinachu
+Group=chinachu
+
+[Install]
+WantedBy=default.target
